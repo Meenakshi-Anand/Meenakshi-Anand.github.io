@@ -13,8 +13,8 @@ We have two classes `User` and `Food`.User is initialized with a `food` attribut
 
 ``` ruby
   class User
-      def initialize(food)
-        @food = food
+    def initialize(food)
+       @food = food
     end
     
     def eat_now
