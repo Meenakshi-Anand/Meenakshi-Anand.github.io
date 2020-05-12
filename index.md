@@ -13,24 +13,20 @@ We have two classes `User` and `Food`.User is initialized with a `food` attribut
 
 ``` ruby
   class User
-  
-    def initialize(food)
+      def initialize(food)
         @food = food
     end
     
     def eat_now
       "I want to eat #{@food.fav_food}."
-    end
-    
+    end    
   end
 ```
 ``` ruby
-  class Food
-  
+  class Food 
     def fav_food
       ['pizza','burger','fries'].sample
-    end 
-    
+    end    
   end
 ```
 We are going to test the `eat_now` method in the `User` class. To test `eat_now` we need a `Food` object with a `fav_food` method. What are the ways in which we do this? 
