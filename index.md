@@ -66,10 +66,10 @@ Here, #double is an RSpec helper method that creates an object with certain prop
 This makes our test very clear , we have created an object which will always return "pasta".The functionality of the object never changes and our tests now only focus on our subject method. This also solves our previous problem of any functional changes in the actual `fav_food` method will not affect our tests. 
 
 ## Mocks 
-Mocks are used when we want to verify a property of communication between two objects. For example if we were to add a special constraint that our `User` can only eat one of the fav_food item. 
+Mocks are used when we want to verify a property of communication between two objects. For example if we were to add a special constraint that our `User` can have only one fav food item. 
 ``` ruby
   describe '#eat_now' do
-    it "can eat only one food item"  do
+    it "can have only one fav food item"  do
       # arrange
       food = double(:food) 
       # assert
@@ -90,7 +90,7 @@ The double then records any messages it receives during Act phase. Finally, in t
 
 ``` ruby
   describe '#eat_now' do
-    it "can eat only one food item"  do
+    it "can have only one fav food item"   do
       # arrange
       food = double(:food,fav_food: "soup") 
       user = User.new
@@ -104,4 +104,4 @@ The double then records any messages it receives during Act phase. Finally, in t
     end
   end
 ```
-Spying is used when we want to verify the same communication property as Mocks, having the assertions in the end.
+Spying is used when we want to verify the same communication property as Mocks,but having the assertions in the end.
