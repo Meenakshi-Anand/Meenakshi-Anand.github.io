@@ -18,7 +18,7 @@ We have two classes `User` and `Food`.User is initialized with a `food` attribut
     end
     
     def eat_now
-      "I want to eat #{@food.fav_food}."
+      "I want to eat '#{@food.fav_food}'"
     end    
   end
 ```
@@ -35,13 +35,14 @@ We are going to test the `eat_now` method in the `User` class. To test `eat_now`
 Our test will look like :
 
 ``` ruby
-  describe '#eat_now' do
-    it "says which food to eat now"  do
-      food =  Food.new
-      user = User.new(@food)
-      expect(@user.eat_now).to match(/I want to eat '(pizza|burger|fries).'/)
-    end
+ describe '#eat_now' do
+  it "says which food to eat now"  do
+    food =  Food.new
+    user = User.new(food)
+    puts user.eat_now, "here"
+    expect(user.eat_now).to match(/I want to eat '(pizza|burger|fries)'/)
   end
+end
 ```
 One of the main pitfalls of testing the method in this ways is we are not testing our subject method in isolation. Our tests depend a lot on `Food` object, and hence we have to account for all possible states of the object in our tests. Secondly if we were to change the functionality of the `fav_food` method in the `Food` class , our tests will fail despite the tests for `eat_now` being correct.
 
